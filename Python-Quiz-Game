@@ -1,0 +1,52 @@
+questions = ((" Who created Python?"),
+             (' In which year was Python first released?'),
+             (' Python was named after which of the following?'),
+             (' Which of the following file extensions is officially used to save Python code files?'),
+             (' What type of programming language is Python regarding how data types are assigned to variables?'))
+
+options = (('A. Dennis Ritchieb, B. James Gosling, C. Guido van Rossumd, D. Bjarne Stroustrup'),
+           ('A. 1989, B. 1991, C. 1995, D.2000'),
+           ("A. A dangerous species of snake, B. A British comedy television show, C. The creator's pet reptiled, D. An ancient Greek mythological beast"),
+           ("A.(.py), B.(.python) C.(.pt) D.(.pl)"),
+           ("A. Statically typed, B. Strongly and statically typed C. Dynamically typed D. None of the mentioned"))
+
+answers = ('C', 'B', 'B', 'A', 'C')
+
+guesses = []
+score = 0
+question_num = 0
+
+for question in questions:
+    print("--------------------------")
+    print(question)
+    for option in options[question_num]:
+        print(option,end="")
+
+    guess = input('  enter your option(A, B, C ,D): ').upper()
+    guesses.append(guess)
+    if guess == answers[question_num]:
+        score += 1
+        print('Its correct!')
+    else:
+        print("its incorrect")
+        print(f"the correct ansewer is {answers[question_num]}")
+
+
+    question_num += 1
+
+print('--------------------------------------')
+print('              Results                 ')
+print('--------------------------------------')
+
+print('answers',end=" ")
+for answer in answers:
+    print(answer,end=" ")
+print()
+
+print('guesses',end=" ")
+for guess in guesses:
+    print(guess,end=" ")
+print()
+
+scores = int(score/len(questions)*100)
+print(f"your total score is {scores}%")
